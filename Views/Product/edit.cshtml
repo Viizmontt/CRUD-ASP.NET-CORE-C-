@@ -1,0 +1,36 @@
+﻿@model P001.Models.ViewModels.ProductViewModel
+@using P001.Models.ViewModels
+
+<div class="container">
+    <div class="card">
+        <div class="card-header bg-info">
+            <h1>Actualizar el Producto</h1>
+        </div>
+        <div class="card-body">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+                <div class="mb-3">
+                    <label asp-for="Nombre" class="form-label"></label>
+                    <input asp-for="Nombre" class="form-control" />
+                    <span asp-validation-for="Nombre" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="IdCategory" class="form-label"></label>
+                    <select asp-for="IdCategory" class="form-control" asp-items="ViewBag.Categories"></select>
+                    <span asp-validation-for="IdCategory" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Precio" class="form-label"></label>
+                    <input asp-for="Precio" class="form-control" />
+                    <span asp-validation-for="Precio" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-info">Actualizar</button>
+                    <a class="btn btn-danger" asp-area="" asp-controller="Product" asp-action="Index">Regresar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@Html.AntiForgeryToken()
